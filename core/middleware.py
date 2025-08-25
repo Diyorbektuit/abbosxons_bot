@@ -1,5 +1,4 @@
 from django.http import JsonResponse
-from common.models import TelegramUser
 
 
 class APIKeyMiddleware:
@@ -7,9 +6,13 @@ class APIKeyMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        if request.method == "OPTIONS":
+            return self.get_response(request)
+
         api_key = request.headers.get("X-API-KEY")
 
         if api_key:
+            from common.models import TelegramUser
             try:
                 request.telegram_user = TelegramUser.objects.get(x_api_key=api_key)
             except TelegramUser.DoesNotExist:
