@@ -31,7 +31,7 @@ services:
     env_file:
       - .env
     container_name: web-container
-    command: gunicorn --workers=3 --timeout 300 --bind 0.0.0.0:8000 core.wsgi:application
+    command: gunicorn --workers=3 --timeout 300 --bind 0.0.0.0:8005 core.wsgi:application
     ports:
       - "8005:8005"
     depends_on:
