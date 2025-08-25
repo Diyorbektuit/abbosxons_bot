@@ -33,7 +33,7 @@ services:
     container_name: web-container
     command: gunicorn --workers=3 --timeout 300 --bind 0.0.0.0:8000 core.wsgi:application
     ports:
-      - "8003:8003"
+      - "8005:8005"
     depends_on:
       - db
     restart: always
