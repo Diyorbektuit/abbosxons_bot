@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-from datetime import timedelta
 from pathlib import Path
 
 from settings import BaseConfig
@@ -154,4 +153,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
     "x-api-key",
 ]
+
+CSRF_TRUSTED_ORIGINS = ["*"]
 
