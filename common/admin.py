@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TelegramUser, TelegramUserSubscribed, TransactionHistory
+from .models import TelegramUser, TelegramUserSubscribed, TransactionHistory, FAQ
 
 
 # Register your models here.
@@ -21,4 +21,11 @@ class TelegramUserSubscribedAdmin(admin.ModelAdmin):
 class TransactionHistoryAdmin(admin.ModelAdmin):
     list_display = ("telegram_user", "amount", "created_at", "updated_at")
     search_fields = ("telegram_user__telegram_user_id",)
+    readonly_fields = ("created_at", "updated_at")
+
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ("question", "created_at", "updated_at")
+    search_fields = ("question",)
     readonly_fields = ("created_at", "updated_at")
