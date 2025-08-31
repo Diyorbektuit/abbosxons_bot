@@ -154,5 +154,7 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     "x-api-key",
 ]
 
-CSRF_TRUSTED_ORIGINS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://abbosxons-bot.xazratqulov.uz",
+]
 
