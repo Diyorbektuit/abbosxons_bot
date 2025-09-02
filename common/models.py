@@ -13,7 +13,7 @@ class BaseModel(models.Model):
 
 
 class TelegramUser(BaseModel):
-    telegram_user_id = models.IntegerField(unique=True)
+    telegram_user_id = models.BigIntegerField(unique=True)
     x_api_key = models.CharField(unique=True, null=True, blank=True)
 
     def __str__(self):
