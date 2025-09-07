@@ -82,8 +82,8 @@ class PaymentCheckAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return False
 
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
 
     def save_model(self, request, obj, form, change):
         old_status = None
