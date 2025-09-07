@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from django.contrib import admin
 from .models import TelegramUser, TelegramUserSubscribed, TransactionHistory, FAQ, PaymentCheck, MainSettings
-from .utils import add_to_channel
+from .utils import create_invite_link, send_telegram_bot_message
 
 
 # Register your models here.
@@ -101,7 +101,8 @@ class PaymentCheckAdmin(admin.ModelAdmin):
                     subscribed.expired_at += timedelta(days=30)
                 subscribed.save()
 
-            add_to_channel(obj.telegram_user.telegram_user_id)
+            link = create_invite_link()
+            send_telegram_bot_message(obj.telegram_user.telegram_user_id, link)
 
             TransactionHistory.objects.create(
                 telegram_user=obj.telegram_user,
