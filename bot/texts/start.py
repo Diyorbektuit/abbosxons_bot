@@ -1,6 +1,6 @@
 def start_text():
     text = (
-        "🎥Creators - bu media sohasidagi insonlar uchun yopiq community!\n\n"
+        "🎥Creators Pro - bu media sohasidagi insonlar uchun yopiq community!\n\n"
 
         "Media sohasidagi insonlar (mobilograf, videograf, filmmaker) uchun eng foydali bilimlar bo'lishib boriladi.\n\n"
 
