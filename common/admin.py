@@ -2,8 +2,13 @@ from django.utils import timezone
 from datetime import timedelta
 
 from django.contrib import admin
+from django.contrib.auth.models import User, Group
 from .models import TelegramUser, TelegramUserSubscribed, TransactionHistory, FAQ, PaymentCheck, MainSettings
 from .utils import create_invite_link, send_telegram_bot_message
+
+
+admin.site.unregister(User)
+admin.site.unregister(Group)
 
 
 # Register your models here.
