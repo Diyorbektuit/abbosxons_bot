@@ -2,7 +2,7 @@ from django.utils import timezone
 
 from rest_framework import serializers
 
-from ..models import TelegramUser, TransactionHistory, TelegramUserSubscribed
+from ..models import TelegramUser, TransactionHistory, PaymentCheck
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -40,5 +40,30 @@ class TransactionHistorySerializer(serializers.ModelSerializer):
             'created_at'
         )
         read_only_fields = fields
+
+
+class PaymentCheckCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PaymentCheck
+        fields = (
+            'payment_check',
+        )
+
+    def validate(self, attrs):
+        telegram_user = self.context['request'].telegram_user
+        if PaymentCheck.objects.filter(telegram_user=telegram_user, status=PaymentCheck.StatusChoice.pending).exists():
+            raise serializers.ValidationError("Sizda hozirda tekshirilayotgan to'lov mavjud")
+        return attrs
+
+    def create(self, validated_data):
+        telegram_user = self.context['request'].telegram_user
+        payment_check = PaymentCheck.objects.create(
+            telegram_user=telegram_user,
+            payment_check=validated_data['payment_check'],
+            status=PaymentCheck.StatusChoice.pending
+        )
+        return payment_check
+
+
 
 

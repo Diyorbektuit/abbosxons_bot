@@ -9,6 +9,7 @@ from aiogram import Bot, Dispatcher
 from bot.routers import all_routers
 from bot.middleware import UserCreateMiddleware
 from settings import BaseConfig
+from common.models import MainSettings
 
 
 class Command(BaseCommand):
@@ -21,6 +22,9 @@ class Command(BaseCommand):
         stream_handler.stream = open(sys.stdout.fileno(), mode='w', encoding='utf-8', buffering=1)
 
         logging.basicConfig(level=logging.INFO, handlers=[stream_handler])
+        main_settings = MainSettings.objects.first()
+        if not main_settings:
+            MainSettings.objects.create()
         asyncio.run(self.start_bot())
 
     @staticmethod

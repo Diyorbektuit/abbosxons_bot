@@ -12,6 +12,10 @@ class BaseModel(models.Model):
         abstract = True
 
 
+class MainSettings(models.Model):
+    main_subscription_price = models.IntegerField(default=30000)
+
+
 class TelegramUser(BaseModel):
     telegram_user_id = models.BigIntegerField(unique=True)
     x_api_key = models.CharField(unique=True, null=True, blank=True)
@@ -23,6 +27,20 @@ class TelegramUser(BaseModel):
         if not self.x_api_key:
             self.x_api_key = uuid.uuid4()
         super().save(*args, **kwargs)
+
+
+class PaymentCheck(BaseModel):
+    class StatusChoice(models.TextChoices):
+        pending = "pending"
+        accepted = "accepted"
+        rejected = "rejected"
+
+    telegram_user = models.ForeignKey(TelegramUser, on_delete=models.CASCADE, related_name="transactions")
+    payment_check = models.ImageField(upload_to="payment_checks")
+    status = models.CharField(choices=StatusChoice.choices, default=StatusChoice.pending, max_length=20)
+
+    def __str__(self):
+        return f"{self.telegram_user}-{self.status}-{self.id} payment check"
 
 
 class TelegramUserSubscribed(BaseModel):
