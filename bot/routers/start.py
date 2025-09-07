@@ -15,5 +15,6 @@ async def start(message: types.Message):
     await message.answer_photo(
         photo="https://api.uzpin.games/media/uploads/df61dd6d-36b2-4e67-b574-f0128ed3fa61.png",
         caption=start_text(),
-        reply_markup=keyboard
+        reply_markup=keyboard,
+        parse_mode="HTML"
     )

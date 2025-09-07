@@ -4,7 +4,7 @@ def start_text():
 
         "Media sohasidagi insonlar (mobilograf, videograf, filmmaker) uchun eng foydali bilimlar bo'lishib boriladi.\n\n"
 
-        "❗️Yopiq communityda nimalar bo'ladi? (har oy)\n"
+        "<b>❗️Yopiq communityda nimalar bo'ladi? (har oy)</b>\n"
         "- Eng so'nggi va trentdagi soundlar\n"
         "- Lightroom presetlar (5 ta)\n"
         "- Pulli LUTlar (2 ta)\n"
@@ -16,6 +16,6 @@ def start_text():
         "- Production jamoamizga qo'shilish imkoniyati\n\n"
 
         "Yopiq communityda ko'rishguncha!🤚\n\n"
-        "Qo'shilish uchun👇"
+        "<b>Qo'shilish uchun👇<b/>"
     )
     return text
