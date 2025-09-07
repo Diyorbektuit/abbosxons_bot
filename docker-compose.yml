@@ -26,8 +26,8 @@ services:
     image: promo-image
     volumes:
       - .:/app
-      - ./static:/app/static/
-      - ./media:/app/media/
+      - ./static:static/
+      - ./media:media/
     env_file:
       - .env
     container_name: web-container
