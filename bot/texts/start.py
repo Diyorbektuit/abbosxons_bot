@@ -6,7 +6,7 @@ def start_text():
 
         "<b>❗️Yopiq communityda nimalar bo'ladi? (har oy)</b>\n"
         "- Eng so'nggi va trentdagi soundlar\n"
-        "- Lightroom presetlar (5 ta)\n"
+        "- Lightroom presetlar (2 ta)\n"
         "- Pulli LUTlar (2 ta)\n"
         "- Colorgrading bo'yicha videodarslik (1 ta)\n"
         "- Ishni tezlashtiruvchi videodarsliklar (2 ta)\n"
