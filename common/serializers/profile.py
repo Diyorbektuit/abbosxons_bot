@@ -13,15 +13,18 @@ class UserProfileSerializer(serializers.ModelSerializer):
         model = TelegramUser
         fields = (
             'is_subscribed',
-            'rest_of_days'
+            'rest_of_days',
         )
         read_only_fields = fields
 
     @staticmethod
     def get_is_subscribed(obj):
         if not hasattr(obj, 'subscribed'):
-            return False
-        return obj.subscribed.expired_at > timezone.now()
+            return "no_subscribed"
+        elif obj.subscribed.expired_at < timezone.now():
+            return "expired"
+        else:
+            return "subscribed"
 
     @staticmethod
     def get_rest_of_days(obj):
