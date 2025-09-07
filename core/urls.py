@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from .schema import swagger_urlpatterns
 
@@ -25,4 +27,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/common/profile/', include('common.urls.profile')),
     path('api/common/extra/', include('common.urls.extra'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

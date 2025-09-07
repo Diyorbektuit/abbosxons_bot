@@ -159,3 +159,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://abbosxons-bot.xazratqulov.uz",
 ]
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
