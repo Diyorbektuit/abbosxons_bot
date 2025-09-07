@@ -13,8 +13,8 @@ async def start(message: types.Message):
     print(message.from_user.id)
     user = await get_user(message.from_user.id)
     keyboard = await start_keyboard(x_api_key=user.x_api_key)
-    await message.answer_video(
-        video="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+    await message.answer_photo(
+        photo="https://api.xazratqulov.uz/media/images/Creators_Pro.png",
         caption=start_text(),
         reply_markup=keyboard
     )
