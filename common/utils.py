@@ -45,7 +45,7 @@ def create_invite_link():
 
     response = requests.post(url, json=params)
     print(response)
-    return response.json()
+    return response.json()["result"]["invite_link"]
 
 
 def send_telegram_bot_message(user_chat_id: int, invite_link: str):
