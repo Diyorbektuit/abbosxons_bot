@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from .schema import swagger_urlpatterns
+
 
 urlpatterns = [
+    *swagger_urlpatterns,
     path('admin/', admin.site.urls),
     path('api/common/profile/', include('common.urls.profile')),
     path('api/common/extra/', include('common.urls.extra'))
