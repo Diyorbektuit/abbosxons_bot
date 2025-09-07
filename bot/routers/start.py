@@ -10,7 +10,6 @@ router = Router()
 
 @router.message(CommandStart())
 async def start(message: types.Message):
-    print(message.from_user.id)
     user = await get_user(message.from_user.id)
     keyboard = await start_keyboard(x_api_key=user.x_api_key)
     await message.answer_photo(

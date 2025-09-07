@@ -14,6 +14,10 @@ class BaseModel(models.Model):
 
 class MainSettings(models.Model):
     main_subscription_price = models.IntegerField(default=30000)
+    admin = models.CharField(max_length=255, default="abbosxon_toychiboyev")
+
+    def __str__(self):
+        return f"MainSettings"
 
 
 class TelegramUser(BaseModel):
