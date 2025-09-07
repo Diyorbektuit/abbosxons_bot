@@ -15,10 +15,13 @@ django-ninja==1.4.3
 django-rest-framework==0.1.0
 djangorestframework==3.16.1
 djangorestframework_simplejwt==5.5.1
+drf-yasg==1.21.10
 frozenlist==1.7.0
 idna==3.10
+inflection==0.5.1
 magic-filter==1.0.12
 multidict==6.6.4
+packaging==25.0
 pillow==11.3.0
 propcache==0.3.2
 psycopg2-binary==2.9.10
@@ -26,9 +29,12 @@ pydantic==2.11.7
 pydantic_core==2.33.2
 PyJWT==2.10.1
 python-dotenv==1.1.1
+pytz==2025.2
+PyYAML==6.0.2
 requests==2.32.5
 sqlparse==0.5.3
 typing-inspection==0.4.1
 typing_extensions==4.14.1
+uritemplate==4.2.0
 urllib3==2.5.0
 yarl==1.20.1
