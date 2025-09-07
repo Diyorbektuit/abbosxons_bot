@@ -16,6 +16,6 @@ def start_text():
         "- Production jamoamizga qo'shilish imkoniyati\n\n"
 
         "Yopiq communityda ko'rishguncha!🤚\n\n"
-        "<b>Qo'shilish uchun👇<b/>"
+        "<b>Qo'shilish uchun👇</b>"
     )
     return text
