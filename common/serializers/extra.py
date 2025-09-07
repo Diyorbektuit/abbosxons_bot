@@ -17,4 +17,3 @@ class MainSettingsSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainSettings
         fields = '__all__'
-        read_only_fields = fields
