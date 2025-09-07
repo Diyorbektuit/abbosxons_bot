@@ -44,6 +44,7 @@ def create_invite_link():
     }
 
     response = requests.post(url, json=params)
+    print(response)
     return response.json()
 
 
